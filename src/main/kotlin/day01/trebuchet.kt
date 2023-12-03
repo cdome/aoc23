@@ -23,11 +23,11 @@ fun firstLastNumber(line: String): Pair<Int, Int> {
     val firstNumberIndex = numbers
         .mapIndexed { idx, value -> idx to line.indexOf(value) }
         .filter { (_, position) -> position > -1 }
-        .minBy {(_, position) -> position }
+        .minBy { (_, position) -> position }
         .first
     val lastNumberIndex = numbers
         .mapIndexed { idx, value -> idx to line.lastIndexOf(value) }
-        .filter {(_, position) -> position > -1 }
+        .filter { (_, position) -> position > -1 }
         .maxBy { (_, position) -> position }
         .first
 

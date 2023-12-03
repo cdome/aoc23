@@ -2,10 +2,7 @@ package day02
 
 import java.io.File
 
-data class Game(
-    val number: Int,
-    val hands: List<Hand>
-) {
+data class Game(val number: Int, val hands: List<Hand>) {
     fun maxRed() = hands.maxOfOrNull { it.red } ?: 0
     fun maxBlue() = hands.maxOfOrNull { it.blue } ?: 0
     fun maxGreen() = hands.maxOfOrNull { it.green } ?: 0
