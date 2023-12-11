@@ -14,18 +14,16 @@ private fun races() {
     val times = file[0].split(":")[1].trim().split(" ").filter { it.isNotBlank() }.map { it.toLong() }
     val distances = file[1].split(":")[1].trim().split(" ").filter { it.isNotBlank() }.map { it.toLong() }
 
-    times.indices.map { i ->
-        val t = times[i]
-        val d = distances[i]
-        possibilities(t, d)
-    }.reduce(Int::times).let { println("Multiple races possibilities: $it") }
+    times.indices
+        .map { possibilities(times[it], distances[it]) }
+        .reduce(Int::times)
+        .let { println("Multiple races possibilities: $it") }
 }
 
 private fun singleRace() {
     val file = File("src/main/resources/day06-boats").readLines()
     val time = file[0].split(":")[1].replace(" ", "").toLong()
     val distance = file[1].split(":")[1].replace(" ", "").toLong()
-
     println("Single race possibilities: ${possibilities(time, distance)}")
 }
 
