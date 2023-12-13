@@ -13,6 +13,6 @@ fun main() {
         valTree
     }
 
-    println("Sum of predictions: ${tree.flatMap { it.map { it.last() } }.sum()}")
+    println("Sum of predictions: ${tree.sumOf { it.sumOf { it.last() } }}")
     println("Sum of past values: ${tree.sumOf { it.map { it.first() }.reduceRight { i, acc -> i - acc } }}")
 }
